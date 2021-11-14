@@ -18,8 +18,9 @@ class Solution {
         // O(n)
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; ++j) {
-            if (map.get(target - nums[i])) {
-                return new int[]{map.get(nums[i]), map.get(target - nums[i])};
+            int targetIndex = map.get(target - nums[i]);
+            if (targetIndex != null) {
+                return new int[]{i, targetIndex};
             } else {
                 map.put(nums[i], i);
             }
