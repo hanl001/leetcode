@@ -56,7 +56,7 @@ class Solution {
                 ++count;
             } while (start != i);
             ++i;
-        } while (count < nums.length);
+        } while (count < nums.length); // 当 count 为 nums.length 时，表示结束 (n 与 k 的最小公约数表示需要遍历的次数)
     }
 }
 
