@@ -30,9 +30,12 @@ class Solution {
         while (right < nums.length) {
             if (nums[right] != 0) {
                 if (left < right) {
-                    nums[left] = nums[left] + nums[right];
-                    nums[right] = nums[left] - nums[right];
-                    nums[left] = nums[left] - nums[right];
+                    int temp = nums[left];
+                    nums[left] = nums[right];
+                    nums[right] = temp;
+                    //nums[left] = nums[left] + nums[right];
+                    //nums[right] = nums[left] - nums[right];
+                    //nums[left] = nums[left] - nums[right];
                 }
                 ++left;
             }
