@@ -56,21 +56,6 @@ class Solution {
                 result[1] = i;
             }
         }
-
-        // i++ 与 ++i
-        int i = 5;
-        int x = i++;
-        int temp_i = i; // 需要生成临时变量
-        i = i + 1;
-        x = tem_id;
-        // i = 6, x = 5
-
-        int i = 5;
-        int x = ++i;
-        i = i + 1;
-        x = i;
-        // i = 6, x = 6
-
-        return null;
+        return result;
     }
 }
