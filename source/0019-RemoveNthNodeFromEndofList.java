@@ -43,7 +43,6 @@ class Solution {
         }
 
         ListNode second = dummy;
-        second.next = head;
         while (first != null) {
             second = second.next;
             first = first.next;
