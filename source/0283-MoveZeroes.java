@@ -25,21 +25,31 @@ class Solution {
         //    nums[index++] = 0;
         //}
 
-        // 法3: 双同向指针
-        int left = 0, right = 0;
-        while (right < nums.length) {
-            if (nums[right] != 0) {
-                if (left < right) {
-                    int temp = nums[left];
-                    nums[left] = nums[right];
-                    nums[right] = temp;
-                    //nums[left] = nums[left] + nums[right];
-                    //nums[right] = nums[left] - nums[right];
-                    //nums[left] = nums[left] - nums[right];
-                }
-                ++left;
+        //// 法3: 双同向指针
+        //int left = 0, right = 0;
+        //while (right < nums.length) {
+        //    if (nums[right] != 0) {
+        //        if (left < right) {
+        //            int temp = nums[left];
+        //            nums[left] = nums[right];
+        //            nums[right] = temp;
+        //            //nums[left] = nums[left] + nums[right];
+        //            //nums[right] = nums[left] - nums[right];
+        //            //nums[left] = nums[left] - nums[right];
+        //        }
+        //        ++left;
+        //    }
+        //    ++right;
+        //}
+
+        // 法4: 同 法 3
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            if (num != 0) {
+                nums[i] = 0; // reset to 0
+                nums[k++] = num;
             }
-            ++right;
         }
     }
 }
