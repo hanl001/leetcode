@@ -1,20 +1,20 @@
 class Solution {
     //// 法 1
     //public String removeDuplicates(String s) {
-    //    Stack<Character> stack = new Stack<>();
+    //    Deque<Character> deque = new LinkedList<>();
     //    for (int i = 0; i < s.length(); i++) {
-    //        if (stack.isEmpty() || stack.peek() != s.charAt(i)) {
-    //            stack.push(s.charAt(i));
+    //        if (deque.isEmpty() || deque.peekLast() != s.charAt(i)) {
+    //            deque.offerLast(s.charAt(i));
     //        } else {
-    //            while (!stack.isEmpty() && stack.peek() == s.charAt(i)) {
-    //                stack.pop();
+    //            while (!deque.isEmpty() && deque.peekLast() == s.charAt(i)) {
+    //                deque.pollLast();
     //            }
     //        }
     //    }
     //    StringBuilder sb = new StringBuilder();
-    //    while (!stack.isEmpty()) {
-    //        char ch = stack.pop();
-    //        sb.insert(0, ch);
+    //    while (!deque.isEmpty()) {
+    //        char ch = deque.pollFirst();
+    //        sb.append(ch);
     //    }
     //    return sb.toString();
     //}
