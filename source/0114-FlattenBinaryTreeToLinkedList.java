@@ -22,12 +22,14 @@ class Solution {
         if (root == null) {
             return;
         }
+        TreeNode rootRight = root.right;
         root.right = helper(root.left);
+        root.left = null;
         TreeNode cur = root;
         while (cur.right != null) {
            cur = cur.right; 
         }
-        cur.right = helper(root.right);
+        cur.right = helper(rootRight);
         return root;
     }
 }
