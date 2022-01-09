@@ -28,10 +28,9 @@ class Solution {
             return null;
         }
         TreeNode root = new TreeNode(preorder[pl]);
-        // int i = rootIndexMap.getOrDefault(root.val, inorder.length);
         int i = rootIndexMap.get(root.val);
         // int i = il;
-        // while (i < inorder.length && root.val != inorder[i]) {
+        // while (root.val != inorder[i]) {
         //     i++;
         // }
         root.left = helper(preorder, inorder, pl + 1, pl + i - il, il, i - 1);
