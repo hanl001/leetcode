@@ -15,12 +15,12 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        return helper(root);
+        helper(root);
     }
 
-    private TreeNode helper(root) {
+    private TreeNode helper(TreeNode root) {
         if (root == null) {
-            return;
+            return null;
         }
         TreeNode rootRight = root.right;
         root.right = helper(root.left);
