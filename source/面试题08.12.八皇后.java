@@ -11,8 +11,8 @@ class Solution {
     }
 
     private List<List<String>> list = new ArrayList<>();
-    private void helper(char[][] board, int col) {
-        if (col == board.length) {
+    private void helper(char[][] board, int row) {
+        if (row == board.length) {
             List<String> item = new ArrayList<>();
             for (int i = 0; i < board.length; i++) {
                 String v = String.valueOf(board[i]);
@@ -21,38 +21,38 @@ class Solution {
             list.add(item);
             return;
         }
-        for (int row = 0; row < board.length; row++) {
-            if (isMatch(board, col, row)) {
-                board[col][row] = 'Q';
-                helper(board, col + 1);
-                board[col][row] = '.';
+        for (int col = 0; row < board.length; row++) {
+            if (isMatch(board, row, col)) {
+                board[row][col] = 'Q';
+                helper(board, row + 1);
+                board[row][col] = '.';
             }
         }
     }
 
-    private boolean isMatch(char[][] board, int col, int row) {
+    private boolean isMatch(char[][] board, int row, int col) {
         for (int i = 0; i < board.length; i++) {
-            if (board[i][row] == 'Q' || board[col][i] == 'Q') {
+            if (board[i][col] == 'Q' || board[row][i] == 'Q') {
                 return false;
             }
         }
-        for (int i = 1; i <= Math.min(col, row); i++) {
-            if (board[col - i][row - i] == 'Q') {
+        for (int i = 1; i <= Math.min(row, col); i++) {
+            if (board[row - i][col - i] == 'Q') {
                 return false;
             }
         }
-        for (int i = 1; i < Math.min(board.length - col, board.length - row); i++) {
-            if (board[col + i][row + i] == 'Q') {
+        for (int i = 1; i < Math.min(board.length - row, board.length - col); i++) {
+            if (board[row + i][col + i] == 'Q') {
                 return false;
             }
         }
-        for (int i = 1; i < Math.min(col + 1, board.length - row); i++) {
-            if (board[col - i][row + i] == 'Q') {
+        for (int i = 1; i < Math.min(row + 1, board.length - col); i++) {
+            if (board[row - i][col + i] == 'Q') {
                 return false;
             }
         }
-        for (int i = 1; i < Math.min(board.length - col, row + 1); i++) {
-            if (board[col + i][row - i] == 'Q') {
+        for (int i = 1; i < Math.min(board.length - row, col + 1); i++) {
+            if (board[row + i][col - i] == 'Q') {
                 return false;
             }
         }
