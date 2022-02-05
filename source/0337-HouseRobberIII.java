@@ -26,8 +26,11 @@ class Solution {
         }
         int[] result_left = helper(root.left);
         int[] result_right = helper(root.right);
+        // no root
         result[0] = Math.max(result_left[0], result_left[1]) + Math.max(result_right[0], result_right[1]);
+        // use root
         result[1] = root.val + result_left[0] + result_right[0];
+
         return result;
     }
 

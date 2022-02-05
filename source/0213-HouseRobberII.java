@@ -1,8 +1,5 @@
 class Solution {
     public int rob(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
-        }
         if (nums.length == 1) {
             return nums[0];
         }
@@ -16,6 +13,20 @@ class Solution {
             int temp = dp1;
             dp1 = Math.max(dp0 + nums[from++], dp1);
             dp0 = temp;
+        }
+        return dp1;
+    }
+
+    private int helper1(int[] nums, int l, int r) {
+        if (l == r) {
+            return nums[l];
+        }
+        int dp0 = nums[l];
+        int dp1 = Math.max(nums[l], nums[l + 1]);
+        for (int i = l + 2; i <= r; i++) {
+            int oldDp1 = dp1;
+            dp1 = Math.max(dp0 + nums[i], dp1);
+            dp0 = oldDp1;
         }
         return dp1;
     }
